@@ -3,27 +3,43 @@
 
 ## Tomcat 7.0.54
 
-TODO
+http://localhost:8080/servlet3-async/error1?fail=true
+- actual
+  - status code: 500 internal server error
+  - no content
+- expected
+  - status code: 500 internal server error
+  - "hello, erroneous world" message
+
+http://localhost:8080/servlet3-async/error2?fail=true
+- actual
+  - status code: 500 internal server error
+  - error.jsp content
+- expected
+  - status code: 500 internal server error
+  - error.jsp content
+
+Note: Unable to manually reproduce the dispatching error condition encountered with TC 8.0.9.
 
 ## Tomcat 8.0.9
 
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
-  - status code: 500 Service Unavailable
+  - status code: 500 internal server error
   - no content
 - expected
   - status code: 500 internal server error
-  - error.jsp content
+  - "hello, erroneous world" message
 
 http://localhost:8080/servlet3-async/error2?fail=true
 - actual
-  - status code: 500 Service Unavailable
+  - status code: 500 internal server error
   - error.jsp content
 - expected
   - status code: 500 internal server error
   - error.jsp content
 
-After a few requests a timeout will be encountered with the following error:
+After a couple of requests a timeout will be encountered with the following error:
 ```
 10-Jul-2014 01:40:33.145 SEVERE [http-nio-8080-exec-2] org.apache.catalina.connector.CoyoteAdapter.asyncDispatch Exception while processing an asynchronous request
  java.lang.IllegalStateException: Calling [asyncTimeout()] is not valid for a request with Async state [DISPATCHING]
