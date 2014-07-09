@@ -10,8 +10,6 @@ import java.io.IOException;
 
 /**
  * Servlet 3.1 API / Asynchronous processing / error handling: approach #1
- *
- * @author marko asplund
  */
 @WebServlet(urlPatterns={"/error1"}, asyncSupported=true)
 public class AsyncErrorServlet1 extends HttpServlet {
