@@ -80,9 +80,9 @@ annotation or have a &lt;async-supported> tag in the web.xml.
 ```
 
 One such sequence appears to be be
-1. http://localhost:8080/servlet3-async/error2?fail=true
-2. http://localhost:8080/servlet3-async/error1
+- http://localhost:8080/servlet3-async/error2?fail=true
+- http://localhost:8080/servlet3-async/error1
 
 Whereas the following sequence seems to be OK:
-1. http 'http://localhost:8080/servlet3-async/error1?fail=true'
-2. http 'http://localhost:8080/servlet3-async/error2?fail=true'
+- http://localhost:8080/servlet3-async/error1?fail=true
+- http://localhost:8080/servlet3-async/error2?fail=true
