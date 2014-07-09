@@ -9,19 +9,19 @@ TODO
 
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
--- status code: 500 Service Unavailable
--- no content
+  - status code: 500 Service Unavailable
+  - no content
 - expected
--- status code: 500 internal server error
--- error.jsp content
+  - status code: 500 internal server error
+  - error.jsp content
 
 http://localhost:8080/servlet3-async/error2?fail=true
 - actual
--- status code: 500 Service Unavailable
--- error.jsp content
+  - status code: 500 Service Unavailable
+  - error.jsp content
 - expected
--- status code: 500 internal server error
--- error.jsp content
+  - status code: 500 internal server error
+  - error.jsp content
 
 After a few requests a timeout will be encountered with the following error:
 ```
