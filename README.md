@@ -5,10 +5,10 @@
 
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
-  - status code: 500 internal server error
+  - status code: 500
   - standard status line; usually no response content. Sometimes standard TC error page is generated.
 - expected
-  - status code: 500 internal server error
+  - status code: 500
   - "hello, erroneous world" message on status line; TC error page.
 
 http://localhost:8080/servlet3-async/error2?fail=true
@@ -28,10 +28,10 @@ reproduced with 5,000+ requests.
 
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
-  - status code: 500 internal server error
+  - status code: 500
   - standard status line; usually no response content. Sometimes standard TC error page is generated.
 - expected
-  - status code: 500 internal server error
+  - status code: 500
   - "hello, erroneous world" message on status line; TC error page.
 
 http://localhost:8080/servlet3-async/error2?fail=true
@@ -57,10 +57,10 @@ Happens also with the Java Blocking Connector (Http11Protocol).
 
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
-  - status code: 500 internal server error
+  - status code: 500
   - "hello, erroneous world" message on status line + error page
 - expected
-  - status code: 500 internal server error
+  - status code: 500
   - "hello, erroneous world" message on status line + error page
 
 http://localhost:8080/servlet3-async/error2?fail=true
@@ -84,7 +84,7 @@ annotation or have a &lt;async-supported> tag in the web.xml.
 	...
 ```
 
-One such sequence appears to be be
+One such sequence appears to be
 - http://localhost:8080/servlet3-async/error2?fail=true
 - http://localhost:8080/servlet3-async/error1
 
