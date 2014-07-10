@@ -6,38 +6,41 @@
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
   - status code: 500 internal server error
-  - standard status line
+  - standard status line; usually no response content. Sometimes standard TC error page is generated.
 - expected
   - status code: 500 internal server error
-  - "hello, erroneous world" message on status line
+  - "hello, erroneous world" message on status line; TC error page.
 
 http://localhost:8080/servlet3-async/error2?fail=true
 - actual
   - status code: 500 internal server error
-  - error.jsp content
+  - app error.jsp content
 - expected
   - status code: 500 internal server error
-  - error.jsp content
+  - app error.jsp content
 
-Note: Unable to manually reproduce the dispatching error condition encountered with TC 8.0.9.
+Note: Tried to reproduce the dispatching error condition encountered with TC 8.0.9
+using [ab](http://httpd.apache.org/docs/2.2/programs/ab.html), but it couldn't be
+reproduced with 5,000+ requests.
 
-## Tomcat 8.0.9
+
+## Tomcat 8.0.9 (Http11NioProtocol connector)
 
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
   - status code: 500 internal server error
-  - standard status line
+  - standard status line; usually no response content. Sometimes standard TC error page is generated.
 - expected
   - status code: 500 internal server error
-  - "hello, erroneous world" message on status line
+  - "hello, erroneous world" message on status line; TC error page.
 
 http://localhost:8080/servlet3-async/error2?fail=true
 - actual
   - status code: 500 internal server error
-  - error.jsp content
+  - app error.jsp content
 - expected
   - status code: 500 internal server error
-  - error.jsp content
+  - app error.jsp content
 
 After a couple of requests a timeout will be encountered with the following error:
 ```
@@ -47,24 +50,26 @@ After a couple of requests a timeout will be encountered with the following erro
 	...
 ```
 
+Happens also with the Java Blocking Connector (Http11Protocol).
+
 
 ## Resin 4.0.40
 
 http://localhost:8080/servlet3-async/error1?fail=true
 - actual
   - status code: 500 internal server error
-  - "hello, erroneous world" message on status line
+  - "hello, erroneous world" message on status line + error page
 - expected
   - status code: 500 internal server error
-  - "hello, erroneous world" message on status line
+  - "hello, erroneous world" message on status line + error page
 
 http://localhost:8080/servlet3-async/error2?fail=true
 - actual
   - status code: 500 internal server error
-  - error.jsp content
+  - app error.jsp content
 - expected
   - status code: 500 internal server error
-  - error.jsp content
+  - app error.jsp content
 
 Some invocation sequences seem to result in the following error:
 
@@ -86,3 +91,22 @@ One such sequence appears to be be
 Whereas the following sequence seems to be OK:
 - http://localhost:8080/servlet3-async/error1?fail=true
 - http://localhost:8080/servlet3-async/error2?fail=true
+
+
+## Jetty 9.2.1.v20140609
+
+http://localhost:8080/servlet3-async/error1?fail=true
+- actual
+  - status code: 500
+  - "hello, erroneous world" message on status line + error page
+- expected
+  - status code: 500
+  - "hello, erroneous world" message on status line + error page.
+
+http://localhost:8080/servlet3-async/error2?fail=true
+- actual
+  - status code: 500 internal server error
+  - app error.jsp content
+- expected
+  - status code: 500 internal server error
+  - app error.jsp content
