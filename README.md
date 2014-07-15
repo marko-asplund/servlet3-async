@@ -92,6 +92,7 @@ Whereas the following sequence seems to be OK:
 - http://localhost:8080/servlet3-async/error1?fail=true
 - http://localhost:8080/servlet3-async/error2?fail=true
 
+** this appears to be a bug in Resin 4.0.40. Bug report [#5776](http://bugs.caucho.com/view.php?id=5776) has been filed in the Resin bug tracker. **
 
 ## Jetty 9.2.1.v20140609
 
