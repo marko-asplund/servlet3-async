@@ -50,6 +50,10 @@ After a couple of requests a timeout will be encountered with the following erro
 	...
 ```
 
+This issue occurs with:
+- Ubuntu 14.04 / OpenJDK 1.7.0_55
+- Mac OS X 10.8.5 / Oracle Java 1.7.0_55
+
 Happens also with the Java Blocking Connector (Http11Protocol).
 
 
