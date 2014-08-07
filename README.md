@@ -7,6 +7,7 @@ http://localhost:8080/servlet3-async/error1?fail=true
 - actual
   - status code: 500
   - standard status line; usually no response content. Sometimes standard TC error page is generated.
+    - ==> Filed [bug 56739](https://issues.apache.org/bugzilla/show_bug.cgi?id=56739) in TC bug tracker.
 - expected
   - status code: 500
   - "hello, erroneous world" message on status line; TC error page.
@@ -30,6 +31,7 @@ http://localhost:8080/servlet3-async/error1?fail=true
 - actual
   - status code: 500
   - standard status line; usually no response content. Sometimes standard TC error page is generated.
+    - ==> Filed [bug 56739](https://issues.apache.org/bugzilla/show_bug.cgi?id=56739) in TC bug tracker.
 - expected
   - status code: 500
   - "hello, erroneous world" message on status line; TC error page.
@@ -56,6 +58,7 @@ This issue occurs with:
 
 Happens also with the Java Blocking Connector (Http11Protocol).
 
+**this is caused by a bug in Tomcat. Filed bug [#56736](https://issues.apache.org/bugzilla/show_bug.cgi?id=56736)  in TC bug tracker.**
 
 ## Resin 4.0.40
 
@@ -96,7 +99,7 @@ Whereas the following sequence seems to be OK:
 - http://localhost:8080/servlet3-async/error1?fail=true
 - http://localhost:8080/servlet3-async/error2?fail=true
 
-**this appears to be a bug in Resin 4.0.40. Bug report [#5776](http://bugs.caucho.com/view.php?id=5776) has been filed in the Resin bug tracker.**
+**this is caused by a bug in Resin 4.0.40. Bug report [#5776](http://bugs.caucho.com/view.php?id=5776) has been filed in the Resin bug tracker.**
 
 ## Jetty 9.2.1.v20140609
 
